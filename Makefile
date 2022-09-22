@@ -6,7 +6,7 @@
 #    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/29 19:03:57 by dgross            #+#    #+#              #
-#    Updated: 2022/09/20 15:31:07 by dgross           ###   ########.fr        #
+#    Updated: 2022/09/22 13:48:38 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME 		= fdf
 
 LIBFT 		= libft/libft.a
 
-SRC 		= main.c event.c read_map.c utils.c
+SRC 		= main.c event.c read_map.c utils.c utils2.c pixel_draw.c
 
 OBJ_DIR		= ./obj/
 
@@ -22,7 +22,7 @@ OBJ			= $(addprefix $(OBJ_DIR),$(SRC:.c=.o))
 
 CC			= cc
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 
 INCLUDES	= -I./includes -I./libft/includes -I./MLX42/include/MLX42
 
@@ -54,7 +54,7 @@ clean:
 	@make clean -C MLX42/
 	@rm -rf obj
 
-fclean:
+fclean: clean
 	@make fclean -C libft/
 	@make fclean -C MLX42/
 	@rm -rf $(NAME)

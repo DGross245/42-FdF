@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:00:50 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/20 15:39:12 by dgross           ###   ########.fr       */
+/*   Updated: 2022/09/22 16:24:16 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int argc, char **argv)
 	t_fdf	fdf;
 	t_map	map;
 
-	map.stack = NULL;
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
@@ -36,14 +35,16 @@ int	main(int argc, char **argv)
 		fdf.mlx = mlx_init(WIDTH, HEIGHT, "FdF", true);
 		if (fdf.mlx == NULL)
 			return (0); // MUSS EIN ERROR SEIN
+		fdf.img = mlx_new_image(fdf.mlx, WIDTH, HEIGHT);
+		if (!fdf.img)
+			return (0); // MUSS EIN ERROR SEIN
 		read_map(fd, &map);
-		//create_map();
-		//fdf.img = mlx_new_image(fdf.mlx, 128, 128);
+		create_map(&map, &fdf);
 		//memset(fdf.img->pixels, 255, fdf.img->width * fdf.img->height * sizeof(int));
-		//mlx_image_to_window(fdf.mlx, fdf.img, 0, 0);
-		//mlx_loop_hook(fdf.mlx, &hook, &fdf);
-		//mlx_loop(fdf.mlx);
-		//mlx_terminate(fdf.mlx);
+		mlx_image_to_window(fdf.mlx, fdf.img, 0, 0);
+		mlx_loop_hook(fdf.mlx, &hook, &fdf);
+		mlx_loop(fdf.mlx);
+		mlx_terminate(fdf.mlx);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:26:15 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/20 15:39:42 by dgross           ###   ########.fr       */
+/*   Updated: 2022/09/21 21:11:53 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include "get_next_line.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int	read_map(int fd, t_map *map)
 {

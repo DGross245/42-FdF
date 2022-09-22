@@ -6,13 +6,14 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:26:25 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/20 17:37:57 by dgross           ###   ########.fr       */
+/*   Updated: 2022/09/21 21:10:38 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 t_grid	*ft_newlist(char *coords)
 {
@@ -60,7 +61,7 @@ int	ft_abs(int x)
 	return (x);
 }
 
-void	swap_coords(int *a, int *b)
+void	swap(int *a, int *b)
 {
 	int	temp;
 
