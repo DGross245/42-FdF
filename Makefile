@@ -6,7 +6,7 @@
 #    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/29 19:03:57 by dgross            #+#    #+#              #
-#    Updated: 2022/09/27 17:09:16 by dgross           ###   ########.fr        #
+#    Updated: 2022/09/27 21:09:02 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ			= $(addprefix $(OBJ_DIR),$(SRC:.c=.o))
 
 CC			= cc
 
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -Werror -g #-fsanitize=address
 
 INCLUDES	= -I./includes -I./libft/includes -I./MLX42/include/MLX42
 

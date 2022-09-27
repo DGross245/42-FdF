@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:00:36 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/27 17:07:27 by dgross           ###   ########.fr       */
+/*   Updated: 2022/09/28 01:28:32 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ typedef struct s_point
 	float	x;
 	float	y;
 	float	z;
-	int	c;
 }t_point;
 
 typedef struct s_cam
 {
-	double	zoom;
-	//double 	kek;
+	int	zoom;
 }t_cam;
 
 typedef struct s_grid
@@ -65,7 +63,7 @@ typedef struct s_fdf
 	mlx_t		*mlx;
 	mlx_image_t	*img;
 	mlx_image_t	*str_img;
-}			t_fdf;
+}t_fdf;
 ///////////////////////////////////////////////////
 /////////		read_map.c		///////////////////
 ///////////////////////////////////////////////////
@@ -88,8 +86,8 @@ void		swap_coords(t_point start, t_point end);
 ///////////////////////////////////////////////////
 
 t_grid		*ft_newlist(char *line);
-void	ft_add_front(t_grid **lst, t_grid *new_lst);
-t_grid		*ft_lastnode(t_grid *lst);
+void		ft_add_front(t_grid **lst, t_grid *new_lst);
+t_grid		*lastnode(t_grid *lst);
 int			ft_abs(int x);
 void		swap(int *a, int *b);
 
@@ -109,9 +107,13 @@ t_point		make_iso(t_point coords);
 t_point		calc_coord(t_map *map, t_point coords);
 void		draw_line(t_point start, t_point end, t_fdf *fdf);
 int			max(int x, int y);
-t_cam		cam_init(void);
+int			min(int x, int y);
+t_cam		cam_init(t_map *map);
 void		*ft_memalloc(size_t size);
 void		iso(float *x, float *y, float z);
 void		ft_del_lst(t_grid **lst);
 void		converter(t_map *map);
+int			ft_listsize(t_grid *lst);
+void		stack_printer(t_map *map);
+
 #endif
