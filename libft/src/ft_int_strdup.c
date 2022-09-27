@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_int_strdup.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 13:11:00 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/24 14:22:43 by dgross           ###   ########.fr       */
+/*   Created: 2022/09/26 11:44:27 by dgross            #+#    #+#             */
+/*   Updated: 2022/09/26 11:45:41 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-#include <stddef.h> // NULL
-
-int	ft_lstsize(t_list *lst)
+int	*ft_int_strdup(const int *s, int len)
 {
-	size_t	i;
+	int	*dup;
 
-	i = 0;
-	if (lst == NULL)
-		return (i);
-	while (lst->next != NULL)
-	{
-		i++;
-		lst = lst->next;
-	}
-	if (lst->next == NULL)
-		i++;
-	return (i);
-}	
+	dup = malloc(sizeof(*dup) * len);
+	if (!dup)
+		return (0);
+	ft_int_memcpy(dup, s, len);
+	return (dup);
+}

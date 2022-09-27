@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:35:50 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/09 15:42:29 by dgross           ###   ########.fr       */
+/*   Updated: 2022/09/26 16:25:42 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE 5000
 # endif
 
 # include <unistd.h> // size_t 

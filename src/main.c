@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:00:50 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/22 16:24:16 by dgross           ###   ########.fr       */
+/*   Updated: 2022/09/27 17:06:34 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,19 @@ int	main(int argc, char **argv)
 		if (!fdf.img)
 			return (0); // MUSS EIN ERROR SEIN
 		read_map(fd, &map);
+		map.cam = cam_init();
 		create_map(&map, &fdf);
-		//memset(fdf.img->pixels, 255, fdf.img->width * fdf.img->height * sizeof(int));
-		mlx_image_to_window(fdf.mlx, fdf.img, 0, 0);
 		mlx_loop_hook(fdf.mlx, &hook, &fdf);
 		mlx_loop(fdf.mlx);
 		mlx_terminate(fdf.mlx);
 	}
 	return (0);
+}
+
+t_cam	cam_init(void)
+{
+	t_cam	camera;
+
+	camera.zoom = 43;
+	return (camera);
 }
