@@ -6,11 +6,12 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:16:20 by dgross            #+#    #+#             */
-/*   Updated: 2022/04/14 18:37:15 by dgross           ###   ########.fr       */
+/*   Updated: 2022/09/24 18:38:37 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	isnumber(const char *str, int i, int sign, long int result1)
 {
@@ -32,6 +33,7 @@ int	ft_atoi(const char	*str)
 	int			sign;
 	long int	result;
 
+	//printf("%s\n", str);
 	i = 0;
 	result = 0;
 	sign = 1;
@@ -47,5 +49,6 @@ int	ft_atoi(const char	*str)
 		i++;
 	}
 	result = isnumber(str, i, sign, result) * sign;
+	//printf("%li\n", result);
 	return (result);
 }

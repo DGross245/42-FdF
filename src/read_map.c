@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:26:15 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/21 21:11:53 by dgross           ###   ########.fr       */
+/*   Updated: 2022/09/27 16:11:17 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	get_stats(char *line, t_map *map)
 	coords = ft_split(line, ' ');
 	while (coords[i])
 	{
-		ft_add_to_back(&map->stack, ft_newlist(coords[i++]));
+		ft_add_front(&map->stack, ft_newlist(coords[i++]));
 		width++;
 	}
 	free_coords(coords);
