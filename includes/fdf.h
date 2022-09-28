@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:00:36 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/28 01:28:32 by dgross           ###   ########.fr       */
+/*   Updated: 2022/09/28 20:35:48 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,18 @@ typedef struct s_point
 	float	x;
 	float	y;
 	float	z;
+	int		x_offset;
+	int		y_offset;
+	int		z_incr;
+	double	alpha;
+	double	beta;
 }t_point;
 
 typedef struct s_cam
 {
 	int	zoom;
+	int prev_zoom;
+	int projection;
 }t_cam;
 
 typedef struct s_grid
@@ -63,7 +70,9 @@ typedef struct s_fdf
 	mlx_t		*mlx;
 	mlx_image_t	*img;
 	mlx_image_t	*str_img;
+	t_map		map;
 }t_fdf;
+
 ///////////////////////////////////////////////////
 /////////		read_map.c		///////////////////
 ///////////////////////////////////////////////////
@@ -110,10 +119,16 @@ int			max(int x, int y);
 int			min(int x, int y);
 t_cam		cam_init(t_map *map);
 void		*ft_memalloc(size_t size);
-void		iso(float *x, float *y, float z);
+void		iso(float *x, float *y, float *z);
 void		ft_del_lst(t_grid **lst);
 void		converter(t_map *map);
 int			ft_listsize(t_grid *lst);
 void		stack_printer(t_map *map);
-
+void		zoom(t_fdf *fdf);
+void		re_draw(t_fdf *fdf);
+void		move(t_fdf *fdf);
+t_point		point_init(void);
+void		projection(t_fdf *fdf);
+void		rotate_y(float *x, float *z, float alpha);
+void		rotate_x(float *y, float *z, float alpha);
 #endif
