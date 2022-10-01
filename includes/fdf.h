@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:00:36 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/28 20:35:48 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/01 22:50:29 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,27 @@ typedef struct s_point
 	float	z;
 	int		x_offset;
 	int		y_offset;
-	int		z_incr;
-	double	alpha;
-	double	beta;
+	float	z_incr;
+	double	angle1;
+	double	angle2;
+	double	angle3;
+	int		z_colour;
 }t_point;
 
 typedef struct s_cam
 {
 	int	zoom;
-	int prev_zoom;
-	int projection;
+	int	prev_zoom;
+	int	projection;
 }t_cam;
 
 typedef struct s_grid
 {
 	char			*grid;
+	int				colour;
 	t_point			point;
 	double			dx;
 	double			dy;
-	double			gradient;
 	double			inty;
 	struct s_grid	*next;
 	struct s_grid	*prev;	
@@ -60,9 +62,13 @@ typedef struct s_map
 {
 	int		height;
 	int		width;
+	float	z_mid;
+	float	z_min;
+	float	z_max;
 	t_grid	*stack;
 	t_cam	cam;
 	int		*str;
+	int		*colour;
 }t_map;
 
 typedef struct s_fdf
@@ -131,4 +137,10 @@ t_point		point_init(void);
 void		projection(t_fdf *fdf);
 void		rotate_y(float *x, float *z, float alpha);
 void		rotate_x(float *y, float *z, float alpha);
+void		rotate(void *param);
+void		angel(t_fdf *fdf);
+void		free_all(t_fdf *fdf);
+t_fdf		*init(t_fdf *fdf);
+void		rotate_z(float *x, float *y, float angle3);
+void		*ft_malloc(size_t size);
 #endif
