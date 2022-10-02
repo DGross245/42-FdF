@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:26:17 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/01 23:46:44 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 00:43:21 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "MLX42.h"
 #include "libft.h"
 #include <math.h>
-#include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 void	create_map(t_map *map, t_fdf *fdf)
 {
@@ -24,7 +24,7 @@ void	create_map(t_map *map, t_fdf *fdf)
 	int	y;
 
 	y = 0;
-	converter(map);
+	converter(fdf);
 	while (y < map->height)
 	{
 		x = 0;
@@ -71,7 +71,7 @@ void	draw_line(t_point start, t_point end, t_fdf *fdf)
 	while (x < xend)
 	{
 		if (start.x > 0 && start.y > 0 && start.x < WIDTH && start.y < HEIGHT)
-			mlx_put_pixel(fdf->img, start.x, start.y, start.z_colour);
+			mlx_put_pixel(fdf->img, start.x, start.y, 0xFFFFFFFF);
 		start.x += dx;
 		start.y += dy;
 		x++;
@@ -93,7 +93,5 @@ t_point	calc_coord(t_map *map, t_point coords)
 		iso(&coords.x, &coords.y, &coords.z);
 	coords.x += (WIDTH / 2) + coords.x_offset;
 	coords.y += (HEIGHT / 2) + coords.y_offset;
-	//printf("%d\n", coords.y_offset);
-	//printf("%d\n", coords.x_offset);
 	return (coords);
 }

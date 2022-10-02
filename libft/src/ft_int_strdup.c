@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:44:27 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/01 22:45:07 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/02 12:35:56 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 int	*ft_int_strdup(const int *s, int len)
 {
 	int	*dup;
-	int i;
 
-	i = 0;
 	dup = malloc(sizeof(int) * len);
 	if (!dup)
 		return (0);

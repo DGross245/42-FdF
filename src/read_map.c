@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:26:15 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/01 22:43:51 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/02 21:38:28 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "get_next_line.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 char	*line_remove(char *str)
 {
@@ -29,43 +30,57 @@ char	*line_remove(char *str)
 	return (new);
 }
 
-int	read_map(int fd, t_map *map)
+int	read_map(int fd, t_fdf *fdf)
 {
 	char	*line;
 	int		height;
+	int		error;
 
+	error = 0;
 	height = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
 		line = line_remove(line);
-		get_stats(line, map);
+		if (get_stats(line, fdf) == -1)
+			error = -1;
 		free(line);
 		height++;
 		line = get_next_line(fd);
 	}
+	if (!fdf->map.stack)
+		ft_exit2("Wrong File", fdf);
 	free(line);
-	map->height = height;
+	fdf->map.height = height;
+	close(fd);
+	if (error == -1)
+		ft_exit2("Read error", fdf);
 	return (0);
 }
 
-void	get_stats(char *line, t_map *map)
+int	get_stats(char *line, t_fdf *fdf)
 {
 	char	**coords;
 	int		i;
 	int		width;
+	int		error;
 
+	error = 0;
 	i = 0;
 	width = 0;
 	coords = ft_split(line, ' ');
 	while (coords[i])
 	{
-		ft_add_front(&map->stack, ft_newlist(coords[i]));
+		if (ft_add_front(&fdf->map.stack, ft_newlist(coords[i])) == -1)
+			error = -1;
 		i++;
 		width++;
 	}
 	free_coords(coords);
-	map->width = width;
+	fdf->map.width = width;
+	if (error == -1)
+		return (-1);
+	return (0);
 }
 
 void	free_coords(char **coords)

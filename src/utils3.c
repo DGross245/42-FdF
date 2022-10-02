@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:46:59 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/01 20:41:49 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/02 18:27:38 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_point	point_init(void)
 {
 	t_point	coords;
 
-	//coords = (t_point *)malloc(sizeof(t_point));
 	coords.x_offset = 0;
 	coords.y_offset = 0;
 	coords.x = 0;
@@ -34,7 +33,6 @@ t_cam	cam_init(t_map *map)
 	t_cam	camera;
 	int		i;
 
-	//camera = (t_cam *)malloc(sizeof(t_cam));
 	i = min((HEIGHT / map->height) / 2, (WIDTH / map->width) / 2);
 	if (i == 1)
 		i++;
@@ -55,9 +53,9 @@ void	free_all(t_fdf *fdf)
 	{
 		tmp = fdf->map.stack;
 		tmp1 = fdf->map.stack->grid;
-		fdf->map.stack = fdf->map.stack->next;
 		free(tmp1);
 		free(tmp);
+		fdf->map.stack = fdf->map.stack->next;
 	}
 }
 
@@ -66,4 +64,14 @@ t_fdf	*init(t_fdf *fdf)
 	fdf->map.cam = cam_init(&fdf->map);
 	fdf->map.stack->point = point_init();
 	return (fdf);
+}
+
+void	init_fdf(t_fdf *fdf)
+{
+	fdf->mlx = mlx_init(WIDTH, HEIGHT, "FdF", true);
+	if (fdf->mlx == NULL)
+		ft_exit("MLX init error");
+	fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT);
+	if (!fdf->img)
+		ft_exit("Image error");
 }

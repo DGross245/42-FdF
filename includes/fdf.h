@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:00:36 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/01 22:50:29 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 01:08:20 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ typedef struct s_fdf
 /////////		read_map.c		///////////////////
 ///////////////////////////////////////////////////
 
-int			read_map(int fd, t_map *map);
-void		get_stats(char *line, t_map *map);
+int			read_map(int fd, t_fdf *fdf);
+int			get_stats(char *line, t_fdf *fdf);
 void		free_coords(char **coords);
 
 ///////////////////////////////////////////////////
@@ -93,24 +93,19 @@ void		free_coords(char **coords);
 
 void		create_map(t_map *map, t_fdf *fdf);
 t_point		make_point(int x, int y, t_map *map);
-void		get_data(t_point start, t_point end, t_map *map);
-void		swap_coords(t_point start, t_point end);
 
 ///////////////////////////////////////////////////
 /////////		utils.c		  /////////////////////
 ///////////////////////////////////////////////////
 
-t_grid		*ft_newlist(char *line);
-void		ft_add_front(t_grid **lst, t_grid *new_lst);
+t_grid		*ft_newlist(char *coords);
+int			ft_add_front(t_grid **lst, t_grid *new_lst);
 t_grid		*lastnode(t_grid *lst);
 int			ft_abs(int x);
-void		swap(int *a, int *b);
 
 ///////////////////////////////////////////////////
 /////////		utils2.c		  /////////////////
 ///////////////////////////////////////////////////
-
-int			check(t_point start, t_point end);
 
 ///////////////////////////////////////////////////
 /////////		event.c		  /////////////////////
@@ -127,7 +122,7 @@ t_cam		cam_init(t_map *map);
 void		*ft_memalloc(size_t size);
 void		iso(float *x, float *y, float *z);
 void		ft_del_lst(t_grid **lst);
-void		converter(t_map *map);
+void		converter(t_fdf *fdf);
 int			ft_listsize(t_grid *lst);
 void		stack_printer(t_map *map);
 void		zoom(t_fdf *fdf);
@@ -137,10 +132,15 @@ t_point		point_init(void);
 void		projection(t_fdf *fdf);
 void		rotate_y(float *x, float *z, float alpha);
 void		rotate_x(float *y, float *z, float alpha);
-void		rotate(void *param);
+void		rotate(t_fdf *fdf);
 void		angel(t_fdf *fdf);
 void		free_all(t_fdf *fdf);
 t_fdf		*init(t_fdf *fdf);
 void		rotate_z(float *x, float *y, float angle3);
 void		*ft_malloc(size_t size);
+void		init_fdf(t_fdf *fdf);
+void		ft_exit(char *str);
+int			ft_isnumber(char *str, int base);
+void		ft_exit2(char *str, t_fdf *fdf);
+int			ft_check(char **colour);
 #endif

@@ -6,13 +6,13 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 14:13:27 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/01 14:17:30 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/02 15:16:11 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_has_prefix(const char *str, int base)
+int	ft_has_prefix(const char *str, int base)
 {
 	size_t	i;
 
@@ -31,13 +31,13 @@ static int	ft_has_prefix(const char *str, int base)
 	return (0);
 }
 
-static int	ft_isspace(int c)
+int	ft_isspace(int c)
 {
 	return (c == '\f' || c == '\n' || c == '\r' \
 	|| c == '\t' || c == '\v' || c == ' ');
 }
 
-static int	ft_isdigit_base(char c, int base)
+int	ft_isdigit_base(char c, int base)
 {
 	const char	*digits = "0123456789ABCDEF";
 	int			i;

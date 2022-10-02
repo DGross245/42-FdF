@@ -6,14 +6,13 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:25:18 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/01 16:52:22 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 01:07:58 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "MLX42.h"
 #include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 void	hook(void *param)
@@ -36,6 +35,8 @@ void	hook(void *param)
 	else if (mlx_is_key_down(fdf->mlx, MLX_KEY_KP_1)
 		|| mlx_is_key_down(fdf->mlx, MLX_KEY_KP_3))
 		projection(fdf);
+	else
+		rotate(fdf);
 }
 
 void	re_draw(t_fdf *fdf)
