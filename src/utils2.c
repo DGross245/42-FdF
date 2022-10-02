@@ -6,20 +6,14 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:30 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/28 01:37:47 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 00:58:59 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "libft.h"
-
-int	check(t_point start, t_point end)
-{
-	if (ft_abs(end.y - start.y) > ft_abs(end.x - start.x))
-		return (1);
-	return (0);
-}
 
 int	max(int x, int y)
 {
@@ -50,12 +44,41 @@ int	ft_listsize(t_grid *lst)
 	return (i);
 }
 
-void	*ft_memalloc(size_t size)
+int	ft_isnumber(char *str, int base)
 {
-	void	*ptr;
+	size_t		i;
+	size_t		digits;
 
-	ptr = malloc(size);
-	if (ptr)
-		ft_bzero(ptr, size);
-	return (ptr);
+	i = 0;
+	digits = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (base != 10 && !ft_has_prefix(&str[i], base))
+		return (0);
+	if (base == 2 || base == 16)
+		i += 2;
+	else if (base == 8)
+		i++;
+	else if (base == 10 && (str[i] == '-' || str[i] == '+'))
+		i++;
+	while (ft_isdigit_base(str[i], base) >= 0)
+	{
+		i++;
+		digits++;
+	}
+	if (!str[i] && digits)
+		return (1);
+	return (0);
+}
+
+int	ft_check(char **colour)
+{
+	int	error;
+
+	error = 0;
+	if (!colour)
+		error = -1;
+	if (colour[1] && !ft_isnumber(colour[1], 16))
+		error = -1;
+	return (error);
 }

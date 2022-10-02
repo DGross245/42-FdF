@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 12:54:20 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/01 22:52:09 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 00:57:54 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,38 +54,25 @@ void	rotate_z(float *x, float *y, float angle3)
 	*y = x_tmp * sin(angle3) + *y * cos(angle3);
 }
 
-void	converter(t_map *map)
+void	converter(t_fdf *fdf)
 {
 	t_grid	*head;
 	int		i;
 	int		listsize;
 
 	i = 0;
-	map->str = ft_malloc(map->width * map->height * sizeof(int));
-	map->colour = ft_malloc(map->width * map->height * sizeof(int));
-	head = lastnode(map->stack);
-	listsize = ft_listsize(map->stack);
+	fdf->map.str = ft_malloc(fdf->map.width * fdf->map.height * sizeof(int));
+	fdf->map.colour = ft_malloc(fdf->map.width * fdf->map.height * sizeof(int));
+	head = lastnode(fdf->map.stack);
+	listsize = ft_listsize(fdf->map.stack);
 	while (listsize != 0)
 	{
-		map->str[i] = ft_atoi(head->grid);
-		map->colour[i] = head->colour;
+		if (!ft_isnumber(head->grid, 10))
+			ft_exit2("read error", fdf);
+		fdf->map.str[i] = ft_atoi(head->grid);
+		fdf->map.colour[i] = head->colour;
 		head = head->prev;
 		listsize--;
 		i++;
 	}
-}
-
-void	*ft_malloc(size_t size)
-{
-	void	*ptr;
-
-	ptr = malloc(size);
-	if (ptr)
-		ft_bzero(ptr, size);
-	else
-	{
-		free(ptr);
-		exit(1);
-	}
-	return (ptr);
 }
