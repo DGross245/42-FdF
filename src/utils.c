@@ -6,14 +6,13 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:26:25 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/03 00:58:29 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 18:41:52 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 t_grid	*ft_newlist(char *coords)
 {
@@ -29,19 +28,29 @@ t_grid	*ft_newlist(char *coords)
 	if (ft_check(colour) == -1)
 		error = -1;
 	if (colour[1])
+	{
+		colour[1] = add_stuff(colour[1]);
 		node->colour = ft_atoi_base(colour[1], 16);
+	}
 	else
 		node->colour = 0;
 	node->grid = ft_strdup(colour[0]);
 	node->next = NULL;
 	free_coords(colour);
+	if (error_check(error, node) == -1)
+		return (NULL);
+	return (node);
+}
+
+int	error_check(int error, t_grid *node)
+{
 	if (error == -1)
 	{
 		free(node->grid);
 		free (node);
-		return (NULL);
+		return (-1);
 	}
-	return (node);
+	return (0);
 }
 
 int	ft_add_front(t_grid **lst, t_grid *new_lst)

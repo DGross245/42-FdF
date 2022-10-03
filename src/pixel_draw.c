@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:26:17 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/03 00:43:21 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 18:41:44 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <math.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 void	create_map(t_map *map, t_fdf *fdf)
 {
@@ -71,7 +70,7 @@ void	draw_line(t_point start, t_point end, t_fdf *fdf)
 	while (x < xend)
 	{
 		if (start.x > 0 && start.y > 0 && start.x < WIDTH && start.y < HEIGHT)
-			mlx_put_pixel(fdf->img, start.x, start.y, 0xFFFFFFFF);
+			mlx_put_pixel(fdf->img, start.x, start.y, start.z_colour);
 		start.x += dx;
 		start.y += dy;
 		x++;

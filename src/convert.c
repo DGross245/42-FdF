@@ -6,14 +6,13 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 12:54:20 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/03 00:57:54 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 18:41:31 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <math.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
 void	iso(float *x, float *y, float *z)

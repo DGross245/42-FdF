@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:39:09 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/17 15:29:04 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 18:42:17 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <stddef.h> // NULL size_t
 #include <stdlib.h> // malloc free
 #include <unistd.h> // read
-#include <stdio.h> // read
 
 char	*read_line(int fd, char *string)
 {

@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:26:15 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/02 21:38:28 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 18:41:49 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "libft.h"
 #include "get_next_line.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <unistd.h>
 
 char	*line_remove(char *str)
@@ -91,4 +90,26 @@ void	free_coords(char **coords)
 	while (coords[i])
 		free(coords[i++]);
 	free(coords);
+}
+
+char	*add_stuff(char *hex)
+{
+	char	*str;
+	int		i;
+	int		offset;
+
+	i = 0;
+	offset = ft_strlen(hex);
+	str = ft_malloc(sizeof(char) * 11);
+	while (hex[i] != '\0')
+	{
+		str[i] = hex[i];
+		i++;
+	}
+	str[i] = 'F';
+	str[i + 1] = 'F';
+	str[i + 2] = '\0';
+	i = 0;
+	free(hex);
+	return (str);
 }

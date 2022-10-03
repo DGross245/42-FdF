@@ -6,13 +6,12 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:43:30 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/03 00:58:59 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 18:41:55 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
 int	max(int x, int y)

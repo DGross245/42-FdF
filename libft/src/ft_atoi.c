@@ -6,12 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:16:20 by dgross            #+#    #+#             */
-/*   Updated: 2022/09/28 01:25:18 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 18:42:26 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	isnumber(const char *str, int i, int sign, long int result1)
 {
