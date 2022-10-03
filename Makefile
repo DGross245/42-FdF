@@ -6,7 +6,7 @@
 #    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/29 19:03:57 by dgross            #+#    #+#              #
-#    Updated: 2022/10/02 22:45:15 by dgross           ###   ########.fr        #
+#    Updated: 2022/10/03 18:37:02 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,14 +39,12 @@ obj:
 
 mlx:
 	@$(MAKE) -C ./MLX42
-	
-$(LIBFT):
-	@$(MAKE) -C ./libft
 
 obj/%.o: src/%.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(NAME): $(LIBFT) mlx obj $(OBJ)
+$(NAME): mlx obj $(OBJ)
+	@$(MAKE) -C ./libft
 	@$(CC) $(OBJ) $(CFLAGS) $(INCLUDES) $(LIBFT) $(MLX) $(GLFW) $(LINCLUDES) -o $(NAME)
 
 clean:

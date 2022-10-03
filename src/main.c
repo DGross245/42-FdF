@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:00:50 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/03 01:07:53 by dgross           ###   ########.fr       */
+/*   Updated: 2022/10/03 15:20:33 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	main(int argc, char **argv)
 		init(&fdf);
 		create_map(&fdf.map, &fdf);
 		mlx_loop_hook(fdf.mlx, &hook, &fdf);
-		//mlx_loop_hook(fdf.mlx, &rotate, &fdf);
 		mlx_loop(fdf.mlx);
 		mlx_terminate(fdf.mlx);
 		free_all(&fdf);
