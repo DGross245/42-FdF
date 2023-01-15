@@ -6,15 +6,9 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:00:36 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/03 17:22:21 by dgross           ###   ########.fr       */
+/*   Updated: 2023/01/15 09:54:15 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// FIXEN = änderungen im Header werden beim maken nicht erkannst, 
-// sprich make macht dann nichts.
-// nochmal nachlesen obs true ist und dann auch in Libft ändern ! $
-// wenn was bei libft geändert wird reicht ein make bei FdF nicht. 
-// muss gefixt werden sollte libft auch checken obs es ok ist.
 
 #ifndef FDF_H
 # define FDF_H
