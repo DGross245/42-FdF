@@ -9,6 +9,7 @@ This is the README for my [FDF] project in 42. The project requires the MLX42 li
 - [Configuration](#configuration)
 - [Building the Project](#building-the-project)
 - [Running the Program](#running-the-program)
+- [Controls](#Controls)
 
 ## Requirements
 
@@ -56,3 +57,24 @@ Replace `<path_to_map_file>` with the path to the map file you want to visualize
 Maps are located in the maps folder
 
 Make sure to provide a valid path to an existing map file as a parameter when running the program.
+
+## Controls
+
+## Controls
+
+Use the following controls to interact with the projection:
+
+- `Numpad 9`: Rotate clockwise
+- `Numpad 7`: Rotate counterclockwise
+- `WASD`: Move the projection around
+- `=`: Increase the 'Z' height
+- `/`: Decrease the 'Z' height
+- `Numpad 1`: Reset to isometric form
+- `Numpad 3`: Reset to parallel form
+- `Numpad 4`: Tilt to the left side
+- `Numpad 6`: Tilt to the right side
+- `Numpad 8`: Forward tilting
+- `Numpad 2`: Backward tilting
+- `+`: Zoom in
+- `-`: Zoom out
+- `Esc`: Quit the program
