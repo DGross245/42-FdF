@@ -9,7 +9,8 @@ This is the README for my [FDF] project in 42. The project requires the MLX42 li
 - [Configuration](#configuration)
 - [Building the Project](#building-the-project)
 - [Running the Program](#running-the-program)
-- [Controls](#Controls)
+- [Controls](#controls)
+- [Images](#images)
 
 ## Requirements
 
@@ -60,8 +61,6 @@ Make sure to provide a valid path to an existing map file as a parameter when ru
 
 ## Controls
 
-## Controls
-
 Use the following controls to interact with the projection:
 
 - `Numpad 9`: Rotate clockwise
@@ -78,3 +77,11 @@ Use the following controls to interact with the projection:
 - `+`: Zoom in
 - `-`: Zoom out
 - `Esc`: Quit the program
+
+## Images
+
+![Julia.fdf](/pictures/Julia.png)
+
+![t1.fdf](/pictures/t1.png)
+
+![elem-fract.fdf](/pictures/elem-fract.png)
