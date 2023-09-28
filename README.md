@@ -1,6 +1,6 @@
 # FDF
 
-This is the README for my [FDF] project in 42. The project requires the MLX42 library, GLFW, and specific configuration steps to run successfully.
+This is the README for my FDF project in 42. The project requires the MLX42 library, GLFW, and specific configuration steps to run successfully.
 
 ## Table of Contents
 
