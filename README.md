@@ -78,7 +78,7 @@ Use the following controls to interact with the projection:
 - `-`: Zoom out
 - `Esc`: Quit the program
 
-## Images
+## Showcase
 
 ![Julia.fdf](/pictures/Julia.png)
 
