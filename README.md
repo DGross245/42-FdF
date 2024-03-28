@@ -2,16 +2,6 @@
 
 This is my FDF project at 42. The project requires the MLX42 library, GLFW, and specific configuration steps to run successfully.
 
-## Table of Contents
-
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Building the Project](#building-the-project)
-- [Running the Program](#running-the-program)
-- [Controls](#controls)
-- [Images](#images)
-
 ## Requirements
 
 Before running this project, ensure that you have the following dependencies:
