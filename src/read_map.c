@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:26:15 by dgross            #+#    #+#             */
-/*   Updated: 2022/10/03 18:41:49 by dgross           ###   ########.fr       */
+/*   Updated: 2024/03/29 18:47:04 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,8 @@ char	*add_stuff(char *hex)
 {
 	char	*str;
 	int		i;
-	int		offset;
 
 	i = 0;
-	offset = ft_strlen(hex);
 	str = ft_malloc(sizeof(char) * 11);
 	while (hex[i] != '\0')
 	{
